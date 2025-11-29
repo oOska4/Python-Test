@@ -19,9 +19,7 @@ def to_u2(n, bits=16):
 print(to_u2(5, bits=16))   # -> '00000101'
 print(to_u2(-5, bits=16))  # -> '11111011'
 
-
-print((lambda n,bits=8: "".join(str(((n + (0 if n>=0 else 2**bits)) // (2**i)) % 2)
-       for i in range(bits-1, -1, -1)))(-5))
-
+# albo calosc w 1 lini:
 
 print("Liczba -5 w systemie u2 to: " + (lambda n,bits=16: "".join(str(((n + (0 if n>=0 else 2**bits)) // (2**i)) % 2) for i in range(bits-1, -1, -1)))(-5))
+
