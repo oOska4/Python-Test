@@ -1,4 +1,4 @@
-def to_u2(n, bits=8):
+def to_u2(n, bits=16):
     # opcjonalna kontrola: czy liczba się mieści w zadanej szerokości
     min_val = -2**(bits-1)
     max_val = 2**(bits-1) - 1
@@ -16,11 +16,12 @@ def to_u2(n, bits=8):
     return s
 
 # przykłady
-print(to_u2(5, bits=8))   # -> '00000101'
-print(to_u2(-5, bits=8))  # -> '11111011'
+print(to_u2(5, bits=16))   # -> '00000101'
+print(to_u2(-5, bits=16))  # -> '11111011'
 
 
 print((lambda n,bits=8: "".join(str(((n + (0 if n>=0 else 2**bits)) // (2**i)) % 2)
        for i in range(bits-1, -1, -1)))(-5))
 
-print("Liczba -5 w systemie u2 to: " + (lambda n,bits=8: "".join(str(((n + (0 if n>=0 else 2**bits)) // (2**i)) % 2) for i in range(bits-1, -1, -1)))(-5))
+
+print("Liczba -5 w systemie u2 to: " + (lambda n,bits=16: "".join(str(((n + (0 if n>=0 else 2**bits)) // (2**i)) % 2) for i in range(bits-1, -1, -1)))(-5))
